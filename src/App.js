@@ -7,6 +7,7 @@ import _ from 'lodash';
 class App extends Component {
   render() {
     console.log(this.props.user);
+    console.log(this.props.user.credential);
     return (
       <div className="App">
         <div className="App-header">
@@ -32,7 +33,7 @@ class App extends Component {
               src={this.props.user.photoURL}
               alt={`user ${this.props.user.email}`}
             />
-            <p className="App-intro">Usuario registrado</p>
+            <p className="App-intro">{this.props.user.displayName} es lind@</p>
             <button onClick={this.props.logout}>
               Logout
               </button>
