@@ -1,21 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import AuthProvider from './AuthProvider';
+import './User.css';
+import _ from 'lodash';
+
 
 class App extends Component {
   render() {
+    console.log(this.props.user);
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Hola Natty</h2>
+          <h1>
+           <img
+            src={process.env.PUBLIC_URL + '/text-logo.png'}
+            alt="# Yo soy ansermeño de corazón"
+           />
+          </h1>
         </div>
-        <AuthProvider>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        </AuthProvider>
+        {_.isEmpty(this.props.user) ? (
+          <div className='App-container'>
+            <img src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" />
+            <p className="App-intro">Usuario no registrado</p>
+            <button onClick={this.props.login}>
+              Login
+              </button>
+          </div>
+        ) : (
+          <div className='App-container'>
+            <img
+              className='User-photo'
+              src={this.props.user.photoURL}
+              alt={`user ${this.props.user.email}`}
+            />
+            <p className="App-intro">Usuario registrado</p>
+            <button onClick={this.props.logout}>
+              Logout
+              </button>
+          </div>
+          )}
       </div>
     );
   }

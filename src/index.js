@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AuthProvider from './AuthProvider';
 import App from './App';
 import './index.css';
 import * as firebase from 'firebase';
@@ -15,6 +16,8 @@ const config = {
 firebase.initializeApp(config);
 
 ReactDOM.render(
-  <App />,
+  <AuthProvider>
+    <App />
+  </AuthProvider>,
   document.getElementById('root')
 );

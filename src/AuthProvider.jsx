@@ -1,50 +1,47 @@
 import React from 'react';
 import * as firebase from 'firebase';
-import _ from 'lodash';
 
 
 class AuthProvider extends React.Component {
+
   constructor(props) {
     super(props);
-    this.state = {
-      user: {},
-    };
+    this.state = { user: {}, };
   }
 
   login() {
     const provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(
-      result => {
-        console.log(result);
-      }
-    ).catch(
-      error => {
-        console.log(error);
-      }
-      )
+    provider.addScope('user_likes');
+    firebase.auth().signInWithPopup(provider);
+  }
+
+  logout() {
+    firebase.auth().signOut();
   }
 
   componentDidMount() {
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-      if (firebaseUser) {
-        this.setState({
-          user: firebaseUser,
-        });
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ user, });
       } else {
-        this.setState({
-          user: {},
-        })
+        this.setState({ user: {}, })
       }
     })
   }
 
   render() {
-    return _.isEmpty(this.state.user) ? (
-      <div>
-        <button onClick={this.login.bind(this)}>Login</button>
-      </div>
-    ) : this.props.children;
+    console.log(this.state.user);
+    return React.cloneElement(this.props.children, {
+      user: this.state.user,
+      login: this.login.bind(this),
+      logout: this.logout.bind(this),
+    });
   }
+}
+
+
+AuthProvider.propTypes = {
+  children: React.PropTypes.any.isRequired,
 }
 
 
