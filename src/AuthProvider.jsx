@@ -41,9 +41,7 @@ class AuthProvider extends React.Component {
   render() {
     return _.isEmpty(this.state.user) ? (
       <div>
-        <button onClick={this.login.bind(this)}>
-          Login
-                </button>
+        <button onClick={this.login.bind(this)}>Login</button>
       </div>
     ) : this.props.children;
   }
