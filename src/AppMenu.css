@@ -1,0 +1,43 @@
+.AppMenu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.AppMenu-item {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 8em;
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-decoration: none;
+}
+
+.AppMenu-item:hover {
+  filter: sepia();
+}
+
+.AppMenu-item-name {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  font-weight: 400;
+}
+
+@media(min-width: 600px) {
+  .AppMenu {
+    padding: 2em 0;
+  }
+
+  .AppMenu-item {
+    width: 48%;
+    height: 10em;
+    margin: 1%;
+  }
+}
