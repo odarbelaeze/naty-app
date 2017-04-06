@@ -1,5 +1,8 @@
 {
- "name": "App",
+ "name": "Ansermeños de corazón",
+ "default_locale": "es",
+ "description": "Aplicación para #AnsermeñosDeCorazón",
+ "short_name": "App Ansermeños",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
