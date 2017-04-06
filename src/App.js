@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import {Button} from 'react-bootstrap';
-
-import _ from 'lodash';
-
 import './App.css';
 import './User.css';
+import _ from 'lodash';
 
 
 class App extends Component {
@@ -25,9 +22,9 @@ class App extends Component {
           <div className='App-container'>
             <img src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" />
             <p className="App-intro">Usuario no registrado</p>
-            <Button bsStyle='primary' onClick={this.props.login}>
-              <i className="fa fa-facebook-official" aria-hidden="true"></i> Conectate con facebook
-            </Button>
+            <button onClick={this.props.login}>
+              Login
+              </button>
           </div>
         ) : (
           <div className='App-container'>
@@ -37,9 +34,9 @@ class App extends Component {
               alt={`user ${this.props.user.email}`}
             />
             <p className="App-intro">{this.props.user.displayName} es lind@</p>
-            <Button bsStyle='primary' onClick={this.props.logout}>
-              <i className="fa fa-facebook-official" aria-hidden="true"></i> Logout
-            </Button>
+            <button onClick={this.props.logout}>
+              Logout
+              </button>
           </div>
           )}
       </div>
