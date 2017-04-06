@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
-import QRCode from 'qrcode.react';
 
 import _ from 'lodash';
 
@@ -41,12 +40,6 @@ class App extends Component {
             <Button bsStyle='primary' onClick={this.props.logout}>
               <i className="fa fa-facebook-official" aria-hidden="true"></i> Logout
             </Button>
-            <p>
-              <QRCode
-                value={`Esto no hace nada, pero ${this.props.user.displayName} es lindo`}
-                bgColor='transparent'
-              />
-            </p>
           </div>
           )}
       </div>
