@@ -30,7 +30,6 @@ class AuthProvider extends React.Component {
   }
 
   render() {
-    console.log(this.state.user);
     return React.cloneElement(this.props.children, {
       user: this.state.user,
       login: this.login.bind(this),

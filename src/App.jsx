@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import _ from 'lodash';
 
 import AppMenu from './AppMenu';
+import Content from './Content';
+import Post from './blog/Post';
 
 import './App.css';
 
@@ -10,8 +12,6 @@ import './App.css';
 
 class App extends Component {
   render() {
-    console.log(this.props.user);
-    console.log(this.props.user.credential);
     return (
       <div className="App">
         <div className="App-header">
@@ -42,6 +42,8 @@ class App extends Component {
             <Router>
               <div className='App-container'>
                 <Route exact path='/' component={AppMenu} />
+                <Route exact path='/contenido' component={Content} />
+                <Route path='/contenido/:postId' component={Post} />
               </div>
             </Router>
           )}
